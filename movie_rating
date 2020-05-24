@@ -1,23 +1,38 @@
 movies = {
   "iron man": 6,
-  titanic: 7
+  "titanic": 7,
+  "vikings": 7
 }
-#check the initial list value
-puts movies
-
-puts "Add something"
+puts "Movie rater V 1.0
+following ratings available: 
+#{movies} 
+options available, type:
+--- 'add' for adding a movie
+--- 'update' for updating a movie's rating
+--- 'display' for showing a movie's rating
+--- 'delete' to delete a movie"
 choice = gets.chomp
 
 case choice
   when "add"
   puts "Add the title of the movie"
-  title = gets.chomp
+  title = gets.chomp.downcase.to_sym
   puts "What's the rating for this movie?:"
-  rating = gets.chomp
-  movies.store(title, rating)
+  rating = gets.chomp.downcase.to_i
+  if movies[title] == nil
+    movies.store(title, rating)
   puts "Your rating was added succesfully!"
+  else puts "This movie already exists in your library!"
+  end
   when "update" 
-    puts "Updated!"
+    puts "What movie's rating you'd like to update?"
+    title = gets.chomp.downcase
+  if movies[title] != nil
+    puts "Movie not found!"
+  else puts "#{title} is selected, what is the new rating?:"
+    rating = gets.chomp.downcase
+    movies.store(title, rating)
+  end
   when "display"
     puts "Movies!"
   when "delete"
@@ -25,5 +40,4 @@ case choice
   else puts "Error!"
 end
 
-#check the value after updates
 puts movies
