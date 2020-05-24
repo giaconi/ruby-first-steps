@@ -1,0 +1,24 @@
+movies = {
+  "iron man": 6,
+  titanic: 7
+}
+puts movies
+puts "Add something"
+choice = gets.chomp
+
+case choice
+  when "add"
+  puts "Add the title of the movie"
+  title = gets.chomp
+  puts "What's the rating for this movie?:"
+  rating = gets.chomp
+  movies.update(hash) { |key, value| key = title, value = rating }
+  puts "Your rating was added succesfully!"
+  when "update" 
+    puts "Updated!"
+  when "display"
+    puts "Movies!"
+  when "delete"
+    puts "Deleted!"
+  else puts "Error!"
+end
