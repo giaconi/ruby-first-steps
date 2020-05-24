@@ -2,7 +2,9 @@ movies = {
   "iron man": 6,
   titanic: 7
 }
+#check the initial list value
 puts movies
+
 puts "Add something"
 choice = gets.chomp
 
@@ -12,7 +14,7 @@ case choice
   title = gets.chomp
   puts "What's the rating for this movie?:"
   rating = gets.chomp
-  movies.update(hash) { |key, value| key = title, value = rating }
+  movies.store(title, rating)
   puts "Your rating was added succesfully!"
   when "update" 
     puts "Updated!"
@@ -22,3 +24,6 @@ case choice
     puts "Deleted!"
   else puts "Error!"
 end
+
+#check the value after updates
+puts movies
