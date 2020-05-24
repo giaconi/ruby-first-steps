@@ -4,9 +4,8 @@ movies = {
   "vikings": 7
 }
 puts "Movie rater V 1.0
-following ratings available: 
-#{movies} 
-options available, type:
+following options available
+ type:
 --- 'add' for adding a movie
 --- 'update' for updating a movie's rating
 --- 'display' for showing a movie's rating
@@ -34,7 +33,8 @@ case choice
     movies[title.to_sym] = rating.to_i
   end
   when "display"
-    puts "Movies!"
+  puts "Following ratings available"
+   movies.each { |t, r| puts "#{t}: #{r}" } 
   when "delete"
     puts "Deleted!"
   else puts "Error!"
