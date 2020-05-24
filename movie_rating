@@ -20,7 +20,7 @@ case choice
   puts "What's the rating for this movie?:"
   rating = gets.chomp.downcase.to_i
   if movies[title] == nil
-    movies.store(title, rating)
+    movies[title.to_sym] = rating.to_i
   puts "Your rating was added succesfully!"
   else puts "This movie already exists in your library!"
   end
@@ -31,7 +31,7 @@ case choice
     puts "Movie not found!"
   else puts "#{title} is selected, what is the new rating?:"
     rating = gets.chomp.downcase
-    movies.store(title, rating)
+    movies[title.to_sym] = rating.to_i
   end
   when "display"
     puts "Movies!"
