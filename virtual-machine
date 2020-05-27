@@ -11,7 +11,7 @@ class Machine
   def create(filename)
     time = Time.now
     @files[filename] = time
-    puts "#{filename} was created by #{@username} at #{time}."
+    puts "#{time}: #{filename} created by #{@username}."
   end
   
   def Machine.get_users
